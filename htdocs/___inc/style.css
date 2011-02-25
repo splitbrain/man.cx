@@ -1,0 +1,142 @@
+body {
+    font-family: sans-serif;
+    background: #fff url(bg.gif);
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+#page {
+    margin: 1em 1em 0 1em;
+    padding: 1em;
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+a {
+    color: #36c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+em, i {
+    color: #390;
+}
+
+strong, b {
+    color: #930;
+}
+
+h1, h2, h3, h4, h5, h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #333333;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* ------------------------------------------------------------------- */
+
+#toc {
+    float: left;
+    width: 12em;
+/*    position: fixed;*/
+    font-size: 90%;
+/*    height:550px;*/
+    overflow:auto;
+/*    position: absolute; */
+}
+
+#toc h3 {
+    padding: 0;
+    font-size: 110%;
+    margin: 0.5em 0 0.2em 0;
+}
+
+#toc ul, #toc div {
+    padding-left: 1em;
+}
+
+/* ------------------------------------------------------------------- */
+
+#manpage {
+    margin-left: 11em;
+    background: #fff url(separator.jpg) repeat-y left;
+    padding: 0.5em 2em;
+}
+
+#manpage i,
+#manpage a,
+#manpage b {
+    font-weight: bold;
+}
+
+#manpage h2 {
+    font-size: 120%;
+    font-weight: normal;
+    margin-left: 3em;
+}
+
+#manpage h2 a {
+    font-weight: normal;
+}
+
+#com {
+    margin-left: 11%;
+}
+
+/* ------------------------------------------------------------------- */
+
+#header {
+    height: auto !important;
+    height: 65px;
+    min-height: 65px;
+}
+
+#header h1 {
+    float: left;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+
+#header form {
+    margin: 0.5em 0.5em 0.5em 1.5em;
+    float: left;
+}
+
+#footer {
+    background: #ccc;
+    margin: 0 1em;
+    padding: 0 1em;
+}
+
+#footer div {
+    font-size: 80%;
+}
+
+div.clearer {
+    line-height: 1px;
+    visibility: hidden;
+    height: 1px;
+    font-size: 1px;
+    clear: both;
+}
+
+div.googlesearch_nav {
+    border-top: solid 1px #ccc;
+    width: 36em;
+}
+
+div.googlesearch_nav .prev {
+    float: left;
+}
+
+div.googlesearch_nav .next {
+    float: right;
+}
