@@ -26,6 +26,13 @@ echo '<!DOCTYPE html>';
         <meta name="verify-v1" content="c4FN8RTU/IsvamiZtYSUOfRl4+hibnML0HgCPDrvLuc=" />
         <link rel="shortcut icon" type="image/png" href="/book.png" />
         <link rel="stylesheet" type="text/css" href="/___inc/style.css" />
+
+        <script language="JavaScript" type="text/javascript">
+            function niceurl(base,tform){
+                window.location.href=base+tform.elements.page.value;
+                return false;
+            }
+        </script>
     </head>
     <body>
     <div id="page">
@@ -34,7 +41,7 @@ echo '<!DOCTYPE html>';
         <?php include('___inc/adsense.php')?>
 
         <h1><a name="top" href="/">Manpages</a></h1>
-        <form method="get" accept-charset="utf-8" action="/">
+        <form method="get" accept-charset="utf-8" action="/" onsubmit="return niceurl('/',this)">
             <label for="lookup">Manpage:</label>
             <input name="page" id="lookup" type="text" />
             <input type="submit" value="go" name="do[go]" />
