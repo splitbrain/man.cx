@@ -1,3 +1,5 @@
+Sitemap: http://man.cx/sitemap_index.xml
+
 User-agent: JobSpider
 Disallow: /
 

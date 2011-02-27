@@ -1,16 +1,11 @@
 RewriteEngine on
 
 
+RewriteRule ^(sitemap_.*)       ___sitemaps/$1 [L]
 
 
-RewriteRule ^\?=(.+)$                http://man.splitbrain.org/$1 [R=301,L]
-#RewriteRule ^\?=(.+)$                http://man.splitbrain.org/$1 [R=301,L]
-RewriteRule ^index.php\?=man                http://man.splitbrain.org/$1 [R=301,L]
-
-RewriteRule ^index.php/man/(.*)     http://man.splitbrain.org/$1 [R=301,L]
-
-#RewriteRule ^$                       manual.php [QSA,L]
-
+RewriteCond %{REQUEST_FILENAME}       !-f
+RewriteCond %{REQUEST_FILENAME}       !-d
 RewriteCond %{REQUEST_FILENAME}       !\.php$
 RewriteCond %{REQUEST_FILENAME}       !\.css$
 RewriteCond %{REQUEST_FILENAME}       !\.js$

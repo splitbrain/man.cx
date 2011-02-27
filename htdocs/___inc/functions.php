@@ -39,7 +39,7 @@ function p_manpage($man,$sec='',$lang=''){
     }
 
     if(!$versions[$id]){
-        echo 'no such man page';
+        echo 'no such man page: '.$man.$id;
         return;
     }
 
