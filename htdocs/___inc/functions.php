@@ -9,8 +9,8 @@ if(defined('E_DEPRECATED')){ // since php 5.3
  * Load a list of all versions of the given man page
  */
 function listversions($man){
-    $sections  = explode(',','1,2,3,4,5,6,7,8,9,n,l,p,o');
-    $languages = explode(',',',bg,ca,cf,cs,da,de,el,es,fi,fr,gl,hu,id,it,ja,ko,man1,man2,man3,man4,man5,man6,man7,man8,man9,manl,mann,nl,pl,pt,pt_BR,py,ro,ru,sh,sk,sr,sv,tk,tr,uk,zh,zh_CN,zh_TW');
+    $sections  = explode(',','1,2,3,4,5,6,7,8,9,n,l,p,o,1x');
+    $languages = explode(',',',ar,bg,ca,cf,cs,da,de,el,en,es,et,eu,fi,fr,gc,gl,he,hr,hu,id,it,ja,jp,ko,lt,nb,nl,or,pl,ps,pt,pt_br,py,ro,ru,sh,sk,sr,sv,ta,th,tk,tr,ug,uk,vi,zh,zh_cn,zh_tw');
 
     $result = array();
     foreach($languages as $lang){
@@ -106,7 +106,7 @@ function p_intro(){
   <p style="margin-left: 11%;">Well okay not all, but a lot. In fact, I extracted all the manpages from all
   available packages in the <a href="http://www.debian.org">Debian</a> testing
   distribution, plus some pages from other sources. This makes a total of
-  <b>81175 available manpages</b> (including translations).</p>
+  <b>119686 available manpages</b> (including translations).</p>
 
   <h2>Cool! How do I use it?</h2>
 

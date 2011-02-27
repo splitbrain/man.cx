@@ -33,11 +33,36 @@ function traversedir($dir=''){
 }
 
 
+function outdir($dir){
+    $parts = explode('/',$dir);
+    $p = array_shift($parts);
+
+    if(substr($p,0,5) == 'zh_CN'){
+        $p = 'zh_CN';
+    }elseif(substr($p,0,5) == 'zh_TW'){
+        $p = 'zh_TW';
+    }elseif(substr($p,0,5) == 'pt_PR'){
+        $p = 'pt_BR';
+    }elseif($p == 'c'){
+        $p = '';
+    }else{
+        $p = preg_replace('/[\\.@_].*$/','',$p);
+    }
+
+    if($p) array_unshift($parts,$p);
+    return strtolower(join('/',$parts));
+}
+
 function processmanpage($dir,$file){
     global $CONF;
     $man  = $CONF['man'];
     $base = preg_replace('/\..*$/','',$file);
+    $out = outdir($dir);
 
+    if(@filemtime("$man/$dir/$file") <= @filemtime($CONF['html']."/$out/$base.html")) return;
+
+    echo "$dir/$file";
+    flush();
 
     $img  = $CONF['img']."/$dir";
     @mkdir($img,0777,true);
@@ -87,9 +112,8 @@ function processmanpage($dir,$file){
     $text = preg_replace($p,$r,$text);
 
     # save raw html
-    $out = $CONF['html']."/$dir";
-    @mkdir($out,0777,true);
-    file_put_contents("$out/$base.html",$text);
+    @mkdir($CONF['html']."/$out",0777,true);
+    file_put_contents($CONF['html']."/$out/$base.html",$text);
 
     # create TOC
     preg_match_all('!<h2><a href="#(heading\d+)" name="(heading\d+)">(.*?)</a></h2>!s',
@@ -98,7 +122,8 @@ function processmanpage($dir,$file){
     foreach($m as $r){
         $toc .= '<li><a href="#'.$r[1].'">'.trim($r[3]).'</a></li>';
     }
-    file_put_contents("$out/$base.toc",$toc);
+    file_put_contents($CONF['html']."/$out/$base.toc",$toc);
 
-    echo "$dir/$file processed\n";
+    echo " processed\n";
+    flush();
 }
