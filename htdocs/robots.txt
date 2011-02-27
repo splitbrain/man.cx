@@ -1,0 +1,5 @@
+User-agent: JobSpider
+Disallow: /
+
+User-agent: JobSpider_BA
+Disallow: /

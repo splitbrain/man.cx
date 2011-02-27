@@ -1,0 +1,21 @@
+RewriteEngine on
+
+
+
+
+RewriteRule ^\?=(.+)$                http://man.splitbrain.org/$1 [R=301,L]
+#RewriteRule ^\?=(.+)$                http://man.splitbrain.org/$1 [R=301,L]
+RewriteRule ^index.php\?=man                http://man.splitbrain.org/$1 [R=301,L]
+
+RewriteRule ^index.php/man/(.*)     http://man.splitbrain.org/$1 [R=301,L]
+
+#RewriteRule ^$                       manual.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME}       !\.php$
+RewriteCond %{REQUEST_FILENAME}       !\.css$
+RewriteCond %{REQUEST_FILENAME}       !\.js$
+RewriteCond %{REQUEST_FILENAME}       !\.png$
+RewriteCond %{REQUEST_FILENAME}       !\.jpg$
+RewriteCond %{REQUEST_FILENAME}       !\.gif$
+RewriteRule (.*)                      index.php?page=$1  [QSA,L]
+
