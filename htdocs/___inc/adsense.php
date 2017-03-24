@@ -15,6 +15,6 @@ google_color_url = "3366cc";
 google_color_text = "333333";
 //--></script>
 <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+  src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
   </script>
 </div>
