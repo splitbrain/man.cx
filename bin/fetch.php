@@ -6,6 +6,7 @@ namespace splitbrain\mancx\bin;
 require __DIR__ . '/../vendor/autoload.php';
 
 use EasyRequest\Client;
+use splitbrain\mancx\main\Config;
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
 
@@ -15,8 +16,6 @@ class Fetch extends CLI
     const TYPE_CONTENTS = 1;
     const TYPE_PACKAGES = 2;
 
-    protected $tempdir = __DIR__ . '/../temp';
-    protected $mandir = __DIR__ . '/../man';
     protected $dpkg;
 
     protected $packages = array();
@@ -69,7 +68,7 @@ class Fetch extends CLI
         }
 
         foreach ($this->packages as $package => $url) {
-            if($url === 1) continue;
+            if ($url === 1) continue;
             $this->extractPackage($url);
         }
     }
@@ -93,7 +92,7 @@ class Fetch extends CLI
         } else {
             throw new \RuntimeException('bad type given');
         }
-        $target = $this->tempdir . '/' . md5($url) . '.gz';
+        $target = Config::TEMPDIR . '/' . md5($url) . '.gz';
 
         $this->info("downloading $url to $target...");
 
@@ -193,7 +192,7 @@ class Fetch extends CLI
      */
     protected function extractPackage($url)
     {
-        $target = $this->tempdir . '/' . md5($url);
+        $target = Config::TEMPDIR . '/' . md5($url);
         mkdir($target, 0777, true);
         $package = "$target/package.deb";
 
@@ -221,7 +220,7 @@ class Fetch extends CLI
         );
         foreach ($paths as $path) {
             if (is_dir("$target/$path")) {
-                system("cp -rfpv $target/$path/* $this->mandir/");
+                system("cp -rfpv $target/$path/* " . Config::MANDIR . '/');
             }
         }
 

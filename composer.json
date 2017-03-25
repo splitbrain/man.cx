@@ -1,0 +1,21 @@
+{
+  "name": "splitbrain/mancx",
+  "description": "man.cx manpage directory",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Andreas Gohr",
+      "email": "andi@splitbrain.org"
+    }
+  ],
+  "require": {
+    "splitbrain/php-cli": "^1.0",
+    "ptcong/easyrequest": "^1.0",
+    "league/plates": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "splitbrain\\mancx\\main\\": "src"
+    }
+  }
+}
