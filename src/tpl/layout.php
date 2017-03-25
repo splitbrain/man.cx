@@ -12,8 +12,8 @@
     <title><?php echo $this->e($title) ?> - man.cx manual pages</title>
     <meta name="robots" content="<?php echo $this->e($robots)?>"/>
     <meta name="verify-v1" content="c4FN8RTU/IsvamiZtYSUOfRl4+hibnML0HgCPDrvLuc="/>
-    <link rel="shortcut icon" type="image/png" href="<?php echo $base ?>___data/book.png"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo $base ?>___inc/style.css"/>
+    <link rel="shortcut icon" type="image/png" href="<?php echo $base ?>___/book.png"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo $base ?>___/style.css"/>
 
     <script language="JavaScript" type="text/javascript">
         function niceurl(base, tform) {
