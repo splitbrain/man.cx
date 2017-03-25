@@ -21,7 +21,8 @@ class App
         $this->plates->addData(array(
             'title' => 'Linux Manpages Online',
             'lang' => 'en',
-            'base' => $base
+            'base' => $base,
+            'robots' => 'index,follow'
         ));
     }
 
@@ -88,7 +89,12 @@ class App
 
     protected function view_search($query)
     {
-        return $this->plates->make('search');
+        $this->plates->addData(array('robots' => 'noindex,follow'));
+
+        $tpl = $this->plates->make('search');
+        $tpl->data(array('query' => $query));
+
+        return $tpl;
     }
 
     protected function view_intro()
@@ -98,11 +104,19 @@ class App
 
     protected function view_manpage($man, $sec, $lang)
     {
-        $data = array();
-        if ($lang) $data['lang'] = $lang;
-        $data['title'] = "Manpage for $man";
+        try {
+            $mf = new ManFormat($man, $sec, $lang);
+        } catch (\Exception $e) {
+            return $this->view_search($man);
+        }
 
-        new ManFormat($man, $sec, $lang);
+        $data = array(
+            'title' => "Manpage for $man",
+            'mf' => $mf,
+            'man' => $man,
+            'sec' => $mf->getSec()
+        );
+        if ($lang) $data['lang'] = $lang;
 
 
         $tpl = $this->plates->make('manpage');

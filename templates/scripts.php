@@ -8,6 +8,9 @@
     ga('create', 'UA-83791-7', 'auto');
     ga('send', 'pageview');
 
-    // adsense
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    // adsense - one push for every ad
+    var adcount = document.getElementsByClassName('adsbygoogle').length;
+    for (var i = 0; i < adcount; i++) {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }
 </script>

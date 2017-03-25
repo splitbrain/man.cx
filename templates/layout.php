@@ -4,12 +4,13 @@
 /** @var string $lang */
 /** @var string $title */
 /** @var string $base */
+/** @var string $robots */
 ?>
 <html lang="<?php echo $this->e($lang) ?>">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><?php echo $this->e($title) ?> - man.cx manual pages</title>
-    <meta name="robots" content="index,follow"/>
+    <meta name="robots" content="<?php echo $this->e($robots)?>"/>
     <meta name="verify-v1" content="c4FN8RTU/IsvamiZtYSUOfRl4+hibnML0HgCPDrvLuc="/>
     <link rel="shortcut icon" type="image/png" href="<?php echo $base ?>book.png"/>
     <link rel="stylesheet" type="text/css" href="<?php echo $base ?>___inc/style.css"/>
@@ -26,6 +27,7 @@
 
     <div id="header">
         <div style="float:right;">
+            <!-- adsense -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:728px;height:90px"
                  data-ad-client="ca-pub-5892664235245840"
