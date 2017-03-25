@@ -15,10 +15,10 @@ class Config
     const HTMLDIR = __DIR__ . '/../html';
 
     /** where plates templates are stored */
-    const TPLDIR = __DIR__ . '/../templates';
+    const TPLDIR = __DIR__ . '/../tpl';
 
     /** where images are stored (has to be within web root) */
-    const IMGDIR = __DIR__ . '/../htdocs/___img';
+    const IMGDIR = __DIR__ . '/../www/___img';
 
     /** base url for accessing above images */
     const IMGBASE = '/___img';

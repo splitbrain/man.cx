@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+   <ShortName>man.cx</ShortName>
+   <Description>Lookup UNIX/Linux man pages.</Description>
+   <Tags>man manual manpage help unix linux debian</Tags>
+   <Contact>andi@splitbrain.org</Contact>
+   <Url type="text/html"
+        template="http://man.cx/{searchTerms}"/>
+   <LongName>man.cx - UNIX man page interface</LongName>
+   <Image height="16" width="16" type="image/png">http://man.cx/book.png</Image>
+   <SyndicationRight>open</SyndicationRight>
+   <AdultContent>false</AdultContent>
+   <OutputEncoding>UTF-8</OutputEncoding>
+   <InputEncoding>UTF-8</InputEncoding>
+ </OpenSearchDescription>

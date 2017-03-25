@@ -15,7 +15,7 @@ class App
     public function __construct()
     {
         $base = '/';
-        if ($_SERVER['HTTP_HOST'] == 'localhost') $base = '/mp/htdocs/';
+        if ($_SERVER['HTTP_HOST'] == 'localhost') $base = '/mp/www/';
 
         $this->plates = new Plates\Engine(Config::TPLDIR);
         $this->plates->addData(array(

@@ -1,0 +1,76 @@
+div.MTC_comment {
+    padding: 0 0 0 1em;
+    font-family: monospace;
+    margin-bottom: 1em;
+}
+
+div.MTC_comment img {
+    float: left;
+}
+
+a.MTC_link {
+    color: #333;
+    font-weight: bold;
+    float: left;
+}
+
+div.MTC_comment div.MTC_text {
+    float: left;
+    width: 60em;
+    margin-left: 1em;
+}
+
+div.MTC_info {
+    width: 57em;
+    padding-top: 0.8em;
+    border-bottom: dashed 1px #ccc;
+    margin-left: 3em;
+    clear: left;
+    text-align: right;
+}
+
+div.MTC_date, div.MTC_user {
+    display: inline;
+    padding: 0 0.5em;
+}
+
+div.commentform {
+    font-family: monospace;
+    margin: 2em 0 1em;
+}
+
+div.MTC_form {
+    margin: 1em 0 0 1em;
+}
+
+div.MTC_form label {
+    display: block;
+    width: 11em;
+    float: left;
+    clear: left;
+}
+
+
+div.MTC_form textarea {
+    width: 44em;
+}
+
+div.MTC_form img {
+    float: left;
+    margin: -50px 0 0 40em;
+    padding: 0;
+}
+
+div.MTC_form input {
+    display: block;
+    clear: left;
+    margin-left: 10em;
+}
+
+div.MTC_form form div input {
+    width: 24em;
+    clear: none;
+    display: inline;
+    margin: 0;
+}
+
