@@ -13,4 +13,19 @@
     for (var i = 0; i < adcount; i++) {
         (adsbygoogle = window.adsbygoogle || []).push({});
     }
+
+    // open/close toc content on header click
+    var asideheaders = document.querySelectorAll('aside nav > h3');
+    Array.prototype.forEach.call(asideheaders, function(el, index, array){
+        el.addEventListener('click', function (e) {
+            // avoid having to use computed style. http://stackoverflow.com/a/21696585/172068
+            if(this.nextElementSibling.offsetParent === null){
+                this.nextElementSibling.style.display = 'block';
+            } else {
+                this.nextElementSibling.style.display = 'none';
+            }
+            
+        });
+    });
+
 </script>

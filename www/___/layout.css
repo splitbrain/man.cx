@@ -1,0 +1,45 @@
+/* mobile first */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0.5em 1em;
+}
+
+aside {
+    order: -1; /* override source order to put navi first */
+}
+
+/* desktop second */
+@media (min-width: 850px) {
+    body {
+
+        padding: 0 2em;
+    }
+
+    .main {
+        flex-direction: row;
+        flex: 1;
+        padding: 1em 2em;
+    }
+
+    main {
+        flex: 1;
+        padding-left: 2em;
+    }
+
+    aside {
+        flex: 0 0 20%;
+    }
+}
+
+.alignfix {
+    margin-left: 11%;
+}
