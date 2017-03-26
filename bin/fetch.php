@@ -220,7 +220,7 @@ class Fetch extends CLI
         );
         foreach ($paths as $path) {
             if (is_dir("$target/$path")) {
-                system("cp -rfpv $target/$path/* " . Config::MANDIR . '/');
+                system("cp -rfupv $target/$path/* " . Config::MANDIR . '/');
             }
         }
 
