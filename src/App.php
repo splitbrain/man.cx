@@ -102,7 +102,16 @@ class App
 
     protected function view_intro()
     {
-        return $this->plates->make('intro');
+        $statfile = Config::HTMLDIR . '/stat';
+
+        $data = array(
+            'count' => (int)trim(file_get_contents($statfile)),
+            'lastmod' => filemtime($statfile),
+        );
+
+        $tpl = $this->plates->make('intro');
+        $tpl->data($data);
+        return $tpl;
     }
 
     protected function view_manpage($man, $sec, $lang)

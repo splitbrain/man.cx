@@ -1,4 +1,8 @@
-<?php /** @var \League\Plates\Template\Template $this */ ?>
+<?php
+/** @var \League\Plates\Template\Template $this */
+/** @var int $count */
+/** @var int $lastmod */
+?>
 <?php $this->layout('layout') ?>
 
 <h2>What is man.cx?</h2>
@@ -15,7 +19,8 @@
 <p style="margin-left: 11%;">Well okay not all, but a lot. In fact, I extracted all the manpages from all
     available packages in the <a href="http://www.debian.org">Debian</a> testing
     distribution, plus some pages from other sources. This makes a total of
-    <b>119686 available manpages</b> (including translations).</p>
+    <b><?php echo $this->e($count)?> available manpages</b> (including translations). The last
+    update ran at <b><?php echo date('F jS, Y', $lastmod) ?></b>.</p>
 
 <h2>Cool! How do I use it?</h2>
 

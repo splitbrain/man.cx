@@ -32,7 +32,9 @@ class Sitemaps extends CLI
      */
     protected function main(Options $options)
     {
-        $this->masterSitemap();
+        $count = $this->masterSitemap();
+        file_put_contents(Config::HTMLDIR . '/stat', $count);
+        $this->success("$count manpages in total");
     }
 
     /**
@@ -40,13 +42,15 @@ class Sitemaps extends CLI
      */
     protected function masterSitemap()
     {
+        $count = 0;
+
         $temp = Config::SMAPDIR . '/sitemap.tmp';
         $target = Config::SMAPDIR . '/sitemap.xml.gz';
 
         $fh = gzopen($temp, 'w');
         if (!$fh) {
             $this->fatal("Could not open $temp for writing");
-            return;
+            return 0;
         }
 
         gzwrite($fh, '<?xml version="1.0" encoding="UTF-8"?>' . "\n");
@@ -55,7 +59,7 @@ class Sitemaps extends CLI
         $dirs = glob(Config::HTMLDIR . '/*', GLOB_ONLYDIR);
         foreach ($dirs as $dir) {
             $name = 'sitemap_' . basename($dir) . '.xml';
-            $this->singleSitemap($dir, $name);
+            $count += $this->singleSitemap($dir, $name);
 
             gzwrite($fh, '  <sitemap>' . "\n");
             gzwrite($fh, '    <loc>' . Config::SMAPBASE . '/' . $name . '.gz' . '</loc>' . "\n");
@@ -71,6 +75,8 @@ class Sitemaps extends CLI
         } else {
             $this->fatal("failed to write $target");
         }
+
+        return $count;
     }
 
     /**
@@ -78,10 +84,12 @@ class Sitemaps extends CLI
      *
      * @param string $dir full path to the html dir to recurse into
      * @param string $name base name for the sitemap
+     * @return int number of links written
      */
     protected function singleSitemap($dir, $name)
     {
         $this->info("processing $dir");
+        $count = 0;
 
         $temp = Config::SMAPDIR . '/' . $name . '.tmp';
         $target = Config::SMAPDIR . '/' . $name . '.gz';
@@ -89,7 +97,7 @@ class Sitemaps extends CLI
         $fh = gzopen($temp, 'w');
         if (!$fh) {
             $this->error("Could not open $temp for writing");
-            return;
+            return 0;
         }
 
         gzwrite($fh, '<?xml version="1.0" encoding="UTF-8"?>' . "\n");
@@ -116,15 +124,18 @@ class Sitemaps extends CLI
             gzwrite($fh, '    <lastmod>' . date('c', $info->getMTime()) . '</lastmod>' . "\n");
             gzwrite($fh, '    <changefreq>monthly</changefreq>' . "\n");
             gzwrite($fh, '  </url>' . "\n");
+            $count++;
         }
 
         gzwrite($fh, '</urlset>' . "\n");
         gzclose($fh);
 
         if (rename($temp, $target)) {
-            $this->success("wrote $target");
+            $this->success("wrote $count links to $target");
+            return $count;
         } else {
             $this->error("failed to write $target");
+            return 0;
         }
     }
 }
