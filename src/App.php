@@ -83,6 +83,8 @@ class App
             if (isset($matches[5])) $lang = $matches[5];
         }
 
+        $man = preg_replace('/\.\.+/', '.', $man);
+
         return array($man, $sec, $lang);
     }
 
