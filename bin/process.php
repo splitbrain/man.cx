@@ -41,7 +41,7 @@ class Process extends CLI
 
             // local part without extension
             $local = ltrim(substr($file, strlen(Config::MANDIR)), '/');
-            $local = preg_replace('/\..*$/', '', $local);
+            $local = preg_replace('/(\.[^\/]+)*$/', '', $local);
 
             $htmlfile = Config::HTMLDIR . '/' . $local . '.html';
             $tocfile = Config::HTMLDIR . '/' . $local . '.toc';

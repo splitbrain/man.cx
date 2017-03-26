@@ -25,7 +25,11 @@ class ManFormat
         }
 
         if (!isset($this->versions[$id])) {
-            throw new \Exception('no such man page: ' . $man . $id);
+            // try language without locale
+            $id = preg_replace('!(_.*?)$!', '', $id);
+            if (!isset($this->versions[$id])) {
+                throw new \Exception('no such man page: ' . $man . $id);
+            }
         }
 
         list($sec) = explode('/', $id);

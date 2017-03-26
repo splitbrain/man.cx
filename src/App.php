@@ -74,16 +74,17 @@ class App
         }
 
         $query = trim($query, '/');
-        $query = mb_strtolower($query, 'utf-8');
 
         $man = $sec = $lang = '';
-        if (preg_match('/([a-z0-9_\-:\.]+)(\(([0-9nlpo][0-9a-z]*)\))?(\/([a-z_]+))?/', $query, $matches)) {
+        if (preg_match('/([a-z0-9_\-:\.]+)(\(([0-9nlpo][0-9a-z]*)\))?(\/([a-z_]+))?/i', $query, $matches)) {
             if (isset($matches[1])) $man = $matches[1];
             if (isset($matches[3])) $sec = $matches[3];
             if (isset($matches[5])) $lang = $matches[5];
         }
 
         $man = preg_replace('/\.\.+/', '.', $man);
+        $man = mb_strtolower($man, 'utf-8');
+        $sec = mb_strtolower($sec, 'utf-8');
 
         return array($man, $sec, $lang);
     }
