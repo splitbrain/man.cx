@@ -92,7 +92,7 @@ class Fetch extends CLI
         } else {
             throw new \RuntimeException('bad type given');
         }
-        $target = Config::TEMPDIR . '/' . md5($url) . '.gz';
+        $target = Config::TEMPDIR . '/' . md5($url . date('Y-m-d')) . '.gz';
 
         $this->info("downloading $url to $target...");
 
