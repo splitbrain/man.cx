@@ -51,6 +51,7 @@ class Process extends CLI
 
             // generate
             $html = $this->processmanpage($file, $local);
+            if($html === '') continue;
             $toc = $this->createToc($html);
 
             // save
@@ -80,10 +81,14 @@ class Process extends CLI
 
         $cmd = 'LANG=en_US.UTF-8 ' .
             'MANROFFOPT="-P -D' . escapeshellarg($imgdir) . ' -P -I' . escapeshellarg($local) . ' -P -n -P -l -P -i120" ' .
-            '/usr/bin/man -E UTF-8 --nj --html=/bin/cat -l ' .
+            '/usr/bin/timeout 60 /usr/bin/man -E UTF-8 --nj --html=/bin/cat -l ' .
             escapeshellarg($file) . ' 2>/dev/null';
         $text = shell_exec($cmd);
 
+        if(trim($text) === '') {
+            $this->error("Failed to run $cmd");
+            return '';
+        }
 
         $p = array(
             # header & footer
