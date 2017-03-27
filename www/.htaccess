@@ -1,16 +1,6 @@
 RewriteEngine on
 
 
-RewriteRule ^(sitemap_.*)       ___sitemaps/$1 [L]
-
-
 RewriteCond %{REQUEST_FILENAME}       !-f
 RewriteCond %{REQUEST_FILENAME}       !-d
-RewriteCond %{REQUEST_FILENAME}       !\.php$
-RewriteCond %{REQUEST_FILENAME}       !\.css$
-RewriteCond %{REQUEST_FILENAME}       !\.js$
-RewriteCond %{REQUEST_FILENAME}       !\.png$
-RewriteCond %{REQUEST_FILENAME}       !\.jpg$
-RewriteCond %{REQUEST_FILENAME}       !\.gif$
 RewriteRule (.*)                      index.php?page=$1  [QSA,L]
-
