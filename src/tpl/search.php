@@ -11,8 +11,8 @@
 <!-- http://stackoverflow.com/a/20142261/172068 -->
 <script>
     function gcseCallback() {
-        if (document.readyState !== 'complete')
-            return google.setOnLoadCallback(gcseCallback, true);
+        //if (document.readyState !== 'complete')
+        //    return google.setOnLoadCallback(gcseCallback, true);
         google.search.cse.element.render({gname:'gsearch', div:'results', tag:'searchresults-only', attributes:{linkTarget:''}});
         var element = google.search.cse.element.getElement('gsearch');
         element.execute("<?php echo $this->e($query)?>");
