@@ -28,16 +28,6 @@
 <body>
 
 <header>
-    <div class="ad_header">
-        <!-- adsense -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5892664235245840"
-             data-ad-slot="5467404526"
-             data-ad-format="auto"></ins>
-    </div>
-
-
     <h1><a name="top" href="<?php echo $base ?>">Manpages</a></h1>
     <form method="get" accept-charset="utf-8" action="<?php echo $base ?>"
           onsubmit="return niceurl('<?php echo $base ?>',this)">

@@ -28,46 +28,8 @@
     </h3>
     <ul>
         <?php echo $mf->getTOC() ?>
-        <li><a href="#comments">COMMENTS</a></li>
     </ul>
 </nav>
 <?php $this->end() //TOC?>
 
-
-
 <?php echo $mf->getHTML() ?>
-
-
-<div class="alignfix">
-    <!-- adsense -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5892664235245840"
-         data-ad-slot="5556632923"
-         data-ad-format="auto"></ins>
-</div>
-
-
-<h2><a href="#comments" name="comments">COMMENTS</a></h2>
-<div id="com" class="alignfix">
-
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = 'https://man.cx/<?php echo "$man$sec"?>';
-            this.page.identifier = '<?php echo "$man$sec"?>';
-        };
-
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://mancx.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>
-        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a>
-    </noscript>
-
-</div>
