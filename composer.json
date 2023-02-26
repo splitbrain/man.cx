@@ -8,10 +8,12 @@
       "email": "andi@splitbrain.org"
     }
   ],
+  "platform": "7.4",
   "require": {
     "splitbrain/php-cli": "^1.0",
     "ptcong/easyrequest": "^1.0",
-    "league/plates": "^3.3"
+    "league/plates": "^3.3",
+    "ext-zlib": "*"
   },
   "autoload": {
     "psr-4": {
